@@ -1,0 +1,26 @@
+/* Layout.css */
+
+/* Contenedor principal que envuelve Sidebar y Main Content */
+.layout {
+  display: flex;
+  min-height: 100vh;
+  margin-left: 250px; /* Ancho del sidebar */
+  transition: margin-left 0.3s ease;
+}
+
+/* Contenido principal que se ajusta al lado derecho del sidebar */
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #ecf0f1;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Área de contenido de la página */
+.page-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

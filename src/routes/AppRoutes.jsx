@@ -1,4 +1,5 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Routes, Route } from 'react-router-dom';
+import Layout from '../components/shared/Layout';
 import Dashboard from "../page/Dashboard";
 import Ventas from "../page/Ventas";
 import Inventario from "../page/Inventario";
@@ -6,35 +7,19 @@ import Proveedores from "../page/Proveedores";
 import Reportes from "../page/Reportes";
 import NotFound from "../page/NotFound";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Dashboard />,
-  },
-  {
-    path: "/ventas",
-    element: <Ventas />,
-  },
-  {
-    path: "/inventario",
-    element: <Inventario />,
-  },
-  {
-    path: "/proveedores",
-    element: <Proveedores />,
-  },
-  {
-    path: "/reportes",
-    element: <Reportes />,
-  },
-  {
-    path: "*", // Ruta para cualquier URL no definida
-    element: <NotFound />,
-  }
-]);
-
 function AppRoutes() {
-  return <RouterProvider router={router} />;
+  return (
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/ventas" element={<Ventas />} />
+        <Route path="/inventario" element={<Inventario />} />
+        <Route path="/proveedores" element={<Proveedores />} />
+        <Route path="/reportes" element={<Reportes />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Layout>
+  );
 }
 
 export default AppRoutes;
