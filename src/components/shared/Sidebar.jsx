@@ -1,29 +1,35 @@
-import { NavLink } from 'react-router-dom'; // Para enlaces activos
+import { NavLink } from 'react-router-dom'; 
 import { FaChartBar, FaShoppingCart, FaBoxes, FaUsers, FaFileAlt } from 'react-icons/fa';
 import "../../styles/Sidebar.css"
 
+
 function Sidebar() {
   return (
-    <aside className="sidebar d-flex flex-column p-3 shadow">
-      <div className="sidebar-header text-center mb-4">
-        <h4>Antony Carrasco</h4>
-        <p className="text-muted">FERREMARKET ROYAL</p>
+    <aside className="sidebar">
+      <div className="sidebar-header">
+        <img
+          src="https://via.placeholder.com/80" // Reemplaza con la URL de la imagen de perfil
+          alt="Perfil"
+          className="profile-icon"
+        />
+        <h3>Antony Carrasco</h3>
+        <p >FERREMARKET ROYAL</p>
       </div>
-      <nav className="sidebar-nav">
-        <NavLink to="/" className="nav-link d-flex align-items-center py-2">
-          <FaChartBar className="me-2" /> Dashboard
+      <nav className="">
+        <NavLink to="/" className="navlink">
+          <FaChartBar className="nav-icon me-2" /> Dashboard
         </NavLink>
-        <NavLink to="/ventas" className="nav-link d-flex align-items-center py-2">
-          <FaShoppingCart className="me-2" /> Ventas
+        <NavLink to="/ventas" className="navlink">
+          <FaShoppingCart className="nav-icon me-2" /> Ventas
         </NavLink>
-        <NavLink to="/inventario" className="nav-link d-flex align-items-center py-2">
-          <FaBoxes className="me-4" /> Inventario 
+        <NavLink to="/inventario" className="navlink">
+          <FaBoxes className="nav-icon me-2" /> Inventario
         </NavLink>
-        <NavLink to="/proveedores" className="nav-link d-flex align-items-center py-2">
-          <FaUsers className="me-2" /> Proveedores
+        <NavLink to="/proveedores" className="navlink">
+          <FaUsers className="nav-icon me-2" /> Proveedores
         </NavLink>
-        <NavLink to="/reportes" className="nav-link d-flex align-items-center py-2">
-          <FaFileAlt className="me-2" /> Reportes
+        <NavLink to="/reportes" className="navlink">
+          <FaFileAlt className="nav-icon me-2" /> Reportes
         </NavLink>
       </nav>
     </aside>

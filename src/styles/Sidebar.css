@@ -2,25 +2,24 @@
 
 /* Estilos generales para el sidebar */
 .sidebar {
-  width: 250px;
+  width: 200px;
   height: 100vh;
-  background-color: #2c3e50;
+  background-color: #1b2d3f;
   position: fixed;
   top: 0;
   left: 0;
   padding: 20px 15px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
   z-index: 1000;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Estilo del encabezado del sidebar (perfil de usuario) */
+/* Estilo del encabezado del sidebar */
 .sidebar-header {
-  margin-bottom: 30px;
   text-align: center;
-
+  margin-bottom: 30px;
 }
 
 .profile-icon {
@@ -28,61 +27,57 @@
   height: 80px;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid #f39c12;
 }
 
-.sidebar-header h4 {
+.sidebar-header h3 {
   color: #ecf0f1;
-  margin-top: 10px;
-  font-size: 18px;
+  font-size: 10px;
+  margin-top: 5px;
   font-weight: 600;
 }
 
 .sidebar-header p {
-  color: #bdc3c7;
-  font-size: 14px;
+  color: #BD9240;
+  font-size: 20px;
+  margin-top: 20px;
+  font-weight: bold;
 }
 
-/* Estilos de los enlaces del sidebar */
-.nav-link {
-  color: #ecf0f1 !important;
+/* Estilos de navegación */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  padding: 0;
+  width: 100%;
+}
+
+.navlink {
+  color: #ffffff;
+  background-color: #3F556B;
   font-size: 16px;
-  padding: 12px 20px;
-  border-radius: 8px;
+  padding: 8px 30px;
+  border-radius: 5px;
   display: flex;
   align-items: center;
   margin-bottom: 10px;
   text-decoration: none;
   transition: background-color 0.3s, color 0.3s;
+  width: 100%;
 }
 
-.nav-link:hover {
-  background-color: #f39c12;
+.navlink:hover {
+  background-color: #B84357;
   color: #fff;
 }
 
-.nav-link.active {
-  background-color: #e74c3c;
+.navlink.active {
+  background-color: #B84357;
   color: #fff;
 }
 
-/* Estilo para los íconos */
-.nav-link .me-2 {
+.navlink .me-4 {
   font-size: 20px;
-}
-
-/* Estilos responsivos para pantallas más pequeñas */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 200px;
-  }
-
-  .profile-icon {
-    width: 70px;
-    height: 70px;
-  }
-
-  .sidebar-header h4 {
-    font-size: 16px;
-  }
+  margin-right: 10px;
 }

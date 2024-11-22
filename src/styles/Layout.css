@@ -4,23 +4,20 @@
 .layout {
   display: flex;
   min-height: 100vh;
-  margin-left: 250px; /* Ancho del sidebar */
-  transition: margin-left 0.3s ease;
+  margin-left: 200px; /* Ancho del sidebar */
 }
 
 /* Contenido principal que se ajusta al lado derecho del sidebar */
 .main-content {
   flex-grow: 1;
-  padding: 20px;
-  background-color: #ecf0f1;
-  min-height: 100vh;
+  background-color: #415155;
   box-sizing: border-box;
 }
 
 /* Área de contenido de la página */
 .page-content {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #19222B;
+  padding: 25px;
+  min-height: 100vh;
+  margin: 0;
 }

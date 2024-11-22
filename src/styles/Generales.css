@@ -1,0 +1,24 @@
+/* General body styles */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: '', sans-serif; /* Elegante y moderna */
+    background-color: #f4f6f9; /* Fondo neutro */
+    color: #333; /* Texto de fácil lectura */
+    line-height: 1.6; /* Espaciado cómodo entre líneas */
+  }
+  
+  /* Quitar márgenes y asegurar ancho completo */
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Evitar scroll horizontal */
+  }
+  
+  /* Estilo para títulos principales */
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: 600;
+    color: #BD9240;
+  }

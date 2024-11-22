@@ -1,4 +1,3 @@
-import React from 'react';
 import Sidebar from './Sidebar';
 import Header from './Header';
 import "../../styles/Layout.css"
@@ -6,9 +5,9 @@ import "../../styles/Layout.css"
 
 function Layout({ children }) {
   return (
-    <div className="layout p-0 m-0">
+    <div className="layout">
       <Sidebar />
-      <div className="main-content p-0 m-0">
+      <div className="main-content">
         <Header />
         <div className="page-content">{children}</div>
       </div>
