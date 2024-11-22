@@ -8,7 +8,7 @@ function Sidebar() {
     <aside className="sidebar">
       <div className="sidebar-header">
         <img
-          src="https://via.placeholder.com/80" // Reemplaza con la URL de la imagen de perfil
+          src="https://via.placeholder.com/80" 
           alt="Perfil"
           className="profile-icon"
         />
