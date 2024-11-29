@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-import Layout from '../components/shared/Layout';
-import Dashboard from "../page/Dashboard";
+import Layout from '../components/Shared/Layout/Layout';
+import Dashboard from "../page/Inicio";
 import Ventas from "../page/Ventas";
 import Inventario from "../page/Inventario";
 import Proveedores from "../page/Proveedores";

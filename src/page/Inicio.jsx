@@ -1,4 +1,4 @@
-function Dashboard() {
+function Inicio() {
     return (
       <>
       <div>
@@ -8,4 +8,4 @@ function Dashboard() {
     )
   }
   
-  export default Dashboard
+  export default Inicio

@@ -1,8 +1,6 @@
-/* Sidebar.css */
-
 /* Estilos generales para el sidebar */
 .sidebar {
-  width: 200px;
+  width: 250px;
   height: 100vh;
   background-color: #1b2d3f;
   position: fixed;
@@ -19,7 +17,7 @@
 /* Estilo del encabezado del sidebar */
 .sidebar-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .profile-icon {
@@ -32,15 +30,19 @@
 .sidebar-header h3 {
   color: #ecf0f1;
   font-size: 10px;
-  margin-top: 5px;
+  margin-top: 10px;
   font-weight: 600;
 }
 
 .sidebar-header p {
   color: #BD9240;
   font-size: 20px;
-  margin-top: 20px;
-  font-weight: bold;
+  margin-top: 55px;
+  font-weight: 800;
+}
+
+.sidebar-header P span{
+  color: #ecf0f1;
 }
 
 /* Estilos de navegación */
@@ -53,17 +55,22 @@
   width: 100%;
 }
 
+.nav-icon {
+  font-size: 25px; 
+}
+
 .navlink {
   color: #ffffff;
-  background-color: #3F556B;
-  font-size: 16px;
-  padding: 8px 30px;
-  border-radius: 5px;
+  background-color: #314b68;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 7px 19px;
+  border-radius: 4px;
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 13px;
   text-decoration: none;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.2s, color 0.2s;
   width: 100%;
 }
 
@@ -75,9 +82,4 @@
 .navlink.active {
   background-color: #B84357;
   color: #fff;
-}
-
-.navlink .me-4 {
-  font-size: 20px;
-  margin-right: 10px;
 }
