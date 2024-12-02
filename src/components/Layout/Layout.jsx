@@ -1,7 +1,6 @@
-import Sidebar from '../Sidebar/Sidebar';
-import Header from '../Header/Header';
-import "../../../styles/Layout.css"
-
+import Sidebar from '../Layout/Sidebar/Sidebar';
+import Header from '../Layout/Header/Header';
+import './Layout.css'
 
 function Layout({ children }) {
   return (

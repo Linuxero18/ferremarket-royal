@@ -2,7 +2,7 @@ import { BrowserRouter } from 'react-router-dom'; // Importa BrowserRouter
 import AppRoutes from './routes/AppRoutes';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import "./styles/Generales.css"
+import "./App.css"
 
 function App() {
   return (
