@@ -4,7 +4,7 @@
 .layout {
   display: flex;
   min-height: 100vh;
-  margin-left: 250px; /* Ancho del sidebar */
+  margin-left: 300px; /* Ancho del sidebar */
 }
 
 /* Contenido principal que se ajusta al lado derecho del sidebar */
@@ -13,10 +13,9 @@
   box-sizing: border-box;
 }
 
-/* Área de contenido de la página */
 .page-content {
   background-color: #19222B;
-  padding: 20px;
   min-height: 100vh;
   margin: 0;
+  margin-top: 120px; /* Asegura que el contenido no quede oculto debajo del header */
 }

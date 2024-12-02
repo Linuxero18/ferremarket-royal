@@ -1,5 +1,9 @@
 /* Estilos generales para el encabezado */
 .header {
+  position: fixed; /* Fija el header en la parte superior */
+  top: 0; /* Asegura que quede en la parte superior */
+  left: 0; /* Alinea el header a la izquierda */
+  width: 100%; /* El header ocupará todo el ancho */
   background-color: #1b2d3f;
   color: #ecf0f1;
   display: flex;
@@ -7,6 +11,7 @@
   align-items: center;
   padding: 15px 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
 }
 
 /* Botones de opciones */
@@ -62,4 +67,9 @@
   padding-left: 20px;
   max-height: 90px;
   width: auto;
+}
+
+/* Ajustar el contenido debajo del header para que no quede oculto */
+.page-content {
+  margin-top: 80px; /* Ajusta este valor según la altura de tu header */
 }

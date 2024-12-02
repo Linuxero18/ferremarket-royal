@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import  Layout from '../components/Layout/Layout';
 import Dashboard from "../page/Inicio";
 import Ventas from "../page/Ventas";
-import Inventario from "../page/Inventario";
+import Inventario from "../page/PageInventario/Inventario";
 import Proveedores from "../page/Proveedores";
 import Reportes from "../page/Reportes";
 import NotFound from "../page/NotFound";

@@ -1,0 +1,200 @@
+/* Estilo para el contenedor principal de Inventario */
+.inventario-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    background-color: #2c3e50;
+    min-height: 100vh;
+    color: #ecf0f1;
+  }
+  
+  /* Estilo para el encabezado del inventario */
+  .inventario-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .inventario-header h1 {
+    font-size: 3rem;
+    color: #f39c12;
+  }
+  
+  .inventario-header p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  
+  /* Estilo para el contenedor de formulario y tabla (principal) */
+  .inventario-main {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    max-width: 1700px;
+  }
+  
+  /* Estilo para el formulario de productos */
+  .productos-formulario {
+    background-color: #34495e;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    border: 1px solid #2c3e50;
+    flex: 1;
+    max-width: 500px;
+  }
+  
+  .productos-formulario h2 {
+    font-size: 2rem;
+    color: #f39c12;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Estilo para el formulario con inputs */
+  .productos-formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Estilo para los campos de texto (input) */
+  .productos-formulario input {
+    padding: 15px;
+    font-size: 1rem;
+    border: 1px solid #7f8c8d;
+    border-radius: 6px;
+    background-color: #34495e;
+    color: #ecf0f1;
+    width: 100%;
+  }
+  
+  
+  /* Estilo para el botón de submit en el formulario */
+  .productos-formulario button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+  }
+  
+  /* Efecto hover para el botón */
+  .productos-formulario button:hover {
+    background-color: #2980b9;
+  }
+
+  .productos-formulario button:focus {
+    outline: none;
+    background-color: #2980b9;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.8);
+  }
+  
+  /* Estilo para la lista de productos */
+  .lista-productos {
+    width: 100%;
+    max-width: 1300px;
+    background-color: #34495e;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    border: 1px solid #2c3e50;
+    overflow-x: auto; /* Habilitar desplazamiento horizontal si la tabla es más ancha */
+  }
+  
+  .lista-productos h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #f39c12;
+  }
+  
+  /* Estilo para la tabla de productos */
+  .productos-table {
+    width: 100%;
+    padding: 10px;
+    border-collapse: collapse;
+  }
+  
+  /* Estilo para las celdas de la tabla */
+  .productos-table th,
+  .productos-table td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #7f8c8d;
+    word-wrap: break-word; /* Evitar que el texto se desborde */
+  }
+  
+  /* Estilo para los encabezados de columna */
+  .productos-table th {
+    background-color: #2c3e50;
+    color: #fff;
+    font-size: 1.2rem;
+  }
+  
+  /* Estilo para las celdas de la tabla */
+  .productos-table td {
+    background-color: #34495e;
+    color: #ecf0f1;
+    font-size: 1rem;
+  }
+  
+/* Contenedor para los botones */
+.buttons-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  /* Estilo para el botón de "Editar" */
+  .buttonEditar {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+  }
+  
+  .buttonEditar:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+  }
+  
+  .buttonEditar:focus {
+    outline: none;
+    background-color: #2980b9;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.8);
+  }
+  
+  /* Estilo para el botón de "Eliminar" */
+  .buttonEliminar {
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+  }
+  
+  .buttonEliminar:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+  }
+  
+  .buttonEliminar:focus {
+    outline: none;
+    background-color: #c0392b;
+    box-shadow: 0 0 8px rgba(231, 76, 60, 0.8);
+  }
