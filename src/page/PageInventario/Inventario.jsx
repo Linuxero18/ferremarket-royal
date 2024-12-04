@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import FormProducto from '../../components/Shared/Form/FormularioProducto';
 import TableProducto from '../../components/Shared/Table/TableProducto';
 import './Inventario.css'

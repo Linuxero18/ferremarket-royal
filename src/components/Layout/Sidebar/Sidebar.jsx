@@ -11,7 +11,7 @@ function Sidebar() {
         <p>FERREMARKET <span>ROYAL</span></p>
       </div>
       <nav className='sidebar-nav'>
-        <NavButton to="/" icon={<FaHome />} label="INICIO" />
+        <NavButton to="/inicio" icon={<FaHome />} label="INICIO" />
         <NavButton to="/ventas" icon={<FaShoppingCart />} label="VENTAS" />
         <NavButton to="/inventario" icon={<FaBoxes />} label="INVENTARIO" />
         <NavButton to="/proveedores" icon={<FaUsers />} label="PROVEEDORES" />
