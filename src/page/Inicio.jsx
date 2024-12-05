@@ -1,11 +1,19 @@
-function Inicio() {
-    return (
-      <>
-      <div>
-        <h1 >Inicio</h1>
-      </div>
-      </>
-    )
+import { useNavigate } from "react-router-dom"
+
+const Inicio = () => {
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    localStorage.setItem('isAuthenticated', 'false');
+    navigate('/')
   }
-  
-  export default Inicio
+
+  return (
+    <div>
+      <h2>Inicio</h2>
+      <button onClick={handleLogin}>Cerrar Sesión</button>
+    </div>
+  )
+}
+
+export default Inicio
