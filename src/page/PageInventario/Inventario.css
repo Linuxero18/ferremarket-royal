@@ -71,26 +71,26 @@
 
 /* Estilo para el botón de submit en el formulario */
 .productos-formulario button {
-  background-color: #3498db;
+  background-color: #345c8a;;
   color: #fff;
-  padding: 10px 20px;
-  font-size: 0.9rem; /* Cambiado de 1rem a 0.9rem */
+  padding: 6px 15px;
+  font-size: 1rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+  box-shadow: 0 4px 8px rgba(21, 98, 149, 0.635);
 }
 
 /* Efecto hover para el botón */
 .productos-formulario button:hover {
-  background-color: #2980b9;
+  background-color: #30639c;
+  transform: translateY(-2px);
 }
 
 .productos-formulario button:focus {
   outline: none;
-  background-color: #2980b9;
-  box-shadow: 0 0 8px rgba(52, 152, 219, 0.8);
+  box-shadow: 0 4px 8px rgba(21, 98, 149, 0.635);
 }
 
 /* Contenedor para habilitar el scroll de la tabla */
@@ -160,7 +160,7 @@
 
 /* Estilo para el botón de "Editar" */
 .buttonEditar {
-  background-color: #3498db;
+  background-color: #345c8a;;
   color: #fff;
   padding: 6px 15px;
   font-size: 1rem;
@@ -168,23 +168,22 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+  box-shadow: 0 4px 8px rgba(21, 98, 149, 0.635);
 }
 
 .buttonEditar:hover {
-  background-color: #2980b9;
+  background-color: #30639c;
   transform: translateY(-2px);
 }
 
 .buttonEditar:focus {
   outline: none;
-  background-color: #2980b9;
-  box-shadow: 0 0 8px rgba(52, 152, 219, 0.8);
+  box-shadow: 0 4px 8px rgba(21, 98, 149, 0.635);
 }
 
 /* Estilo para el botón de "Eliminar" */
 .buttonEliminar {
-  background-color: #e74c3c;
+  background-color: #B84357;
   color: #fff;
   padding: 6px 15px;
   font-size: 1rem;
@@ -192,16 +191,15 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+  box-shadow: 0 4px 8px rgba(189, 56, 78, 0.785);
 }
 
 .buttonEliminar:hover {
-  background-color: #c0392b;
+  background-color: #c83b52;
   transform: translateY(-2px);
 }
 
 .buttonEliminar:focus {
   outline: none;
-  background-color: #c0392b;
-  box-shadow: 0 0 8px rgba(231, 76, 60, 0.8);
+  box-shadow: 0 4px 8px rgba(189, 56, 78, 0.785);
 }
