@@ -8,16 +8,6 @@ function Inventario() {
   const [productoEdit, setProductoEdit] = useState(null);
 
   useEffect(() => {
-    const fetchProductos = async () => {
-      try {
-        const response = await fetch('http://localhost:3000/productos/');
-        const data = await response.json();
-        setProductos(data);
-      } catch (error) {
-        console.error('Error al cargar los productos:', error);
-      }
-    };
-
     fetchProductos();
   }, []);
 

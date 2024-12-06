@@ -1,13 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
 import Layout from '../components/Layout/Layout';
-import Ventas from "../page/Ventas";
+import Ventas from "../page/PageVentas/Ventas";
 import Inventario from "../page/PageInventario/Inventario";
-import Proveedores from "../page/Proveedores";
-import Reportes from "../page/Reportes";
-import NotFound from "../page/NotFound";
-import Inicio from '../page/Inicio';
+import Proveedores from "../page/PageProveedores/Proveedores";
+import Reportes from "../page/PageReportes/Reportes";
+import NotFound from "../page/Page404/NotFound";
+import Inicio from '../page/PageInicio/Inicio';
 import Login from '../page/PageLogin/Login';
 import PrivateRoute from '../components/PrivateRoute';
+import Usuarios from '../page/PageUsuarios/Usuarios';
 
 function AppRoutes() {
   return (
@@ -62,6 +63,16 @@ function AppRoutes() {
           <PrivateRoute>
             <Layout>
               <Reportes />
+            </Layout>
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/usuarios"
+        element={
+          <PrivateRoute>
+            <Layout>
+              <Usuarios />
             </Layout>
           </PrivateRoute>
         }
