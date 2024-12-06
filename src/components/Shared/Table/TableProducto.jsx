@@ -7,6 +7,7 @@ const TableProducto = ({ productos, handleEdit, handleDelete }) => {
       <table className="productos-table">
         <thead>
           <tr>
+            <th>Codigo</th>
             <th>Nombre</th>
             <th>Descripción</th>
             <th>Categoría</th>
@@ -19,6 +20,7 @@ const TableProducto = ({ productos, handleEdit, handleDelete }) => {
         <tbody>
           {productos.map((producto) => (
             <tr key={producto.id_producto}>
+              <td>{producto.id_producto}</td>
               <td>{producto.nombre}</td>
               <td>{producto.descripcion}</td>
               <td>{producto.categoria}</td>
