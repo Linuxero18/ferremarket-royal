@@ -1,11 +1,11 @@
-function Proveedores() {
-    return (
-      <>
-      <div>
-        <h1>Proveedores</h1>
-      </div>
-      </>
-    )
-  }
-  
-  export default Proveedores
+import React from 'react'
+
+const Proveedores = () => {
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+export default Proveedores

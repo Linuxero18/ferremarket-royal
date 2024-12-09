@@ -52,26 +52,37 @@
   text-align: center;
 }
 
-/* Estilo para los campos de texto (input) */
-.productos-formulario form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.productos-formulario input {
+/* Estilo para los campos de texto (input) y combobox (select) */
+.productos-formulario input,
+.productos-formulario select {
   padding: 15px;
-  font-size: 0.9rem; /* Cambiado de 1rem a 0.9rem */
+  font-size: 0.9rem; /* Tamaño de fuente similar */
   border: 1px solid #7f8c8d;
   border-radius: 6px;
   background-color: #34495e;
   color: #ecf0f1;
   width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover para los inputs y select */
+.productos-formulario input:hover,
+.productos-formulario select:hover {
+  background-color: #2c3e50;
+  transform: translateY(-2px);
+}
+
+/* Efecto focus para los inputs y select */
+.productos-formulario input:focus,
+.productos-formulario select:focus {
+  outline: none;
+  box-shadow: 0 4px 8px rgba(21, 98, 149, 0.635);
 }
 
 /* Estilo para el botón de submit en el formulario */
 .productos-formulario button {
-  background-color: #345c8a;;
+  background-color: #345c8a;
   color: #fff;
   padding: 6px 15px;
   font-size: 1rem;
@@ -110,7 +121,7 @@
 .productos-table {
   width: 100%;
   border-collapse: collapse;
-  box-shadow: #2c3e50 0 0  20px;
+  box-shadow: #2c3e50 0 0 20px;
   max-height: 550px; /* Establecer un alto fijo para la tabla */
   overflow-y: auto; /* Hacer que la tabla sea desplazable verticalmente si el contenido excede el alto */
   display: block; /* Necesario para aplicar el overflow en tablas */
@@ -122,7 +133,7 @@
   padding: 10px;
   text-align: left;
   font-size: 0.9rem; /* Tamaño de fuente reducido */
-  border: #f39c12 transparent ;
+  border: #f39c12 transparent;
 }
 
 /* Estilo para el encabezado de la tabla */
@@ -160,7 +171,7 @@
 
 /* Estilo para el botón de "Editar" */
 .buttonEditar {
-  background-color: #345c8a;;
+  background-color: #345c8a;
   color: #fff;
   padding: 6px 15px;
   font-size: 1rem;
@@ -202,4 +213,13 @@
 .buttonEliminar:focus {
   outline: none;
   box-shadow: 0 4px 8px rgba(189, 56, 78, 0.785);
+}
+
+.error-message {
+  color: #e74c3c;
+  background-color: #f2dede;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  text-align: center;
 }

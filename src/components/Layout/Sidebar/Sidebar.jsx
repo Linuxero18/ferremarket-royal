@@ -6,7 +6,7 @@ function Sidebar() {
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
-        <img src="https://via.placeholder.com/80" alt="Perfil" className="profile-icon" />
+        <img src="src/assets/pluto.jpg" alt="Perfil" className="profile-icon" />
         <h3>Piter Muñoz</h3>
         <p>FERREMARKET <span>ROYAL</span></p>
       </div>
