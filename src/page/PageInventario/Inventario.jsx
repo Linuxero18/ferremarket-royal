@@ -5,7 +5,7 @@ import './Inventario.css'
 
 function Inventario() {
   const [productos, setProductos] = useState([]);
-  const [productoEdit, setProductoEdit] = useState(null);
+  const [productoEdit,  setProductoEdit] = useState(null);
 
   useEffect(() => {
     fetchProductos();
@@ -22,19 +22,16 @@ function Inventario() {
   };
 
   const handleDelete = async (id) => {
-    if (window.confirm("¿Estás seguro de eliminar este producto?")) {
-      try {
-        const response = await fetch(`http://localhost:3000/productos/${id}`, { method: 'DELETE' });
-        if (response.ok) {
-          alert('Producto eliminado');
-          fetchProductos();
-        }
-      } catch (error) {
-        console.error('Error al eliminar el producto:', error);
-      }
+    try {
+      const response = await fetch(`http://localhost:3000/productos/${id}`, { method: 'DELETE' });
+      if (response.ok) {
+        alert('Producto eliminado');
+        fetchProductos();
+       }
+    } catch (error) {
+      console.error('Error al eliminar el producto:', error);
     }
   };
-  
 
   const handleEdit = (producto) => {
     setProductoEdit(producto);

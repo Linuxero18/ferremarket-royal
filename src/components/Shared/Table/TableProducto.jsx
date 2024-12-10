@@ -1,5 +1,3 @@
-import React from 'react';
-
 const TableProducto = ({ productos, handleEdit, handleDelete }) => {
   if (productos.length === 0) {
     return <p>No hay productos disponibles</p>;
@@ -35,11 +33,11 @@ const TableProducto = ({ productos, handleEdit, handleDelete }) => {
               <td>{producto.id_producto}</td>
               <td>{producto.nombre}</td>
               <td>{producto.descripcion}</td>
-              <td>{producto.nombre_categoria}</td>
+              <td>{producto.categoria}</td>
               <td>${producto.precio_unitario}</td>
               <td>{producto.stock_actual}</td>
               <td>{producto.stock_minimo}</td>
-              <td>{producto.nombre_proveedor}</td>
+              <td>{producto.proveedor}</td>
               <td>
                 <div className="buttons-container">
                   <button 
