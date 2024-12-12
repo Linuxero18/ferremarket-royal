@@ -9,6 +9,7 @@ import Inicio from '../page/PageInicio/Inicio';
 import Login from '../page/PageLogin/Login';
 import PrivateRoute from '../components/PrivateRoute';
 import Usuarios from '../page/PageUsuarios/Usuarios';
+import FormularioEditarUsuario from '../components/Shared/Form/FormularioEditarUsuario';
 
 function AppRoutes() {
   return (
@@ -76,6 +77,16 @@ function AppRoutes() {
             </Layout>
           </PrivateRoute>
         }
+      />
+      <Route 
+        path="/editar/:id" 
+        element={
+          <PrivateRoute>
+            <Layout>
+              <FormularioEditarUsuario />
+            </Layout>
+          </PrivateRoute>
+        } 
       />
     </Routes>
   );

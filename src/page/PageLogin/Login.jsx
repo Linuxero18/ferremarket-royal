@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import FormularioLogin from '../../components/Shared/Form/FormularioLogin';
 import { useState } from 'react';
-import axios from 'axios';
 import './Login.css';
 
 const Login = () => {
@@ -14,18 +13,28 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:3000/usuarios/login', {
-                nombre_usuario: username,
-                password,
+            const response = await fetch('http://localhost:3000/usuarios/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    nombre_usuario: username,
+                    password: password,
+                }),
             });
 
-            if (response.status === 200) {
+            if (response.ok) {
+                const data = await response.json();
                 localStorage.setItem('isAuthenticated', 'true');
-                localStorage.setItem('user', JSON.stringify(response.data.user));
+                localStorage.setItem('user', JSON.stringify(data.user));
                 navigate('/inicio'); 
+            } else {
+                const errorData = await response.json();
+                setError(errorData.message || 'Error en el servidor');
             }
         } catch (error) {
-            setError(error.response ? error.response.data.message : 'Error en el servidor');
+            setError('Error en el servidor');
         }
     };
 
