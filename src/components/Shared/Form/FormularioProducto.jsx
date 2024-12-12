@@ -1,6 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-const FormularioProducto = ({ productoEdit, setProductoEdit, fetchProductos }) => {
+const FormularioProducto = ({ 
+  productoEdit, 
+  setProductoEdit, 
+  fetchProductos, 
+  categorias,  // Nuevo prop para categorías
+  proveedores  // Nuevo prop para proveedores
+}) => {
   const [nuevoProducto, setNuevoProducto] = useState({
     id_producto: '',
     nombre: '',
@@ -12,37 +18,16 @@ const FormularioProducto = ({ productoEdit, setProductoEdit, fetchProductos }) =
     id_proveedor: '',
   });
 
-  const [categorias, setCategorias] = useState([]);
-  const [proveedores, setProveedores] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchOptions = async () => {
-      try {
-        const categoriaRes = await fetch('http://localhost:3000/categorias');
-        const proveedorRes = await fetch('http://localhost:3000/proveedores');
-        const categoriasData = await categoriaRes.json();
-        const proveedoresData = await proveedorRes.json();
-
-        setCategorias(categoriasData);
-        setProveedores(proveedoresData);
-        setLoading(false);
-      } catch (error) {
-        setError('Error al cargar categorías o proveedores');
-        setLoading(false);
-      }
-    };
-
-    fetchOptions();
-  }, []);
-
+  // Actualizar los datos del formulario cuando se edita un producto
   useEffect(() => {
     if (productoEdit) {
       setNuevoProducto({
         ...productoEdit,
       });
     } else {
+      // Resetear el formulario
       setNuevoProducto({
         id_producto: '',
         nombre: '',
@@ -58,12 +43,13 @@ const FormularioProducto = ({ productoEdit, setProductoEdit, fetchProductos }) =
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setNuevoProducto({ ...nuevoProducto, [name]: value });
+    setNuevoProducto(prev => ({ ...prev, [name]: value }));
   };
 
   const handleSubmitProducto = async (e) => {
     e.preventDefault();
 
+    // Validaciones del formulario
     if (!nuevoProducto.nombre || !nuevoProducto.precio_unitario || !nuevoProducto.stock_actual) {
       setError('Todos los campos requeridos deben ser completados');
       return;
@@ -86,22 +72,20 @@ const FormularioProducto = ({ productoEdit, setProductoEdit, fetchProductos }) =
         body: JSON.stringify(nuevoProducto),
       });
 
+      // Verificamos si la respuesta es exitosa
       if (response.ok) {
         alert(productoEdit ? 'Producto editado' : 'Producto agregado');
         setProductoEdit(null);
-        fetchProductos();
+        fetchProductos();  // Actualiza la lista de productos
         setError(null);
       } else {
-        setError('Error al guardar el producto');
+        const errorData = await response.json();
+        setError(errorData.message || 'Error al guardar el producto');
       }
     } catch (error) {
       setError('Error al guardar el producto');
     }
   };
-
-  if (loading) {
-    return <div>Cargando...</div>;
-  }
 
   return (
     <section className="productos-formulario">
@@ -122,7 +106,6 @@ const FormularioProducto = ({ productoEdit, setProductoEdit, fetchProductos }) =
           value={nuevoProducto.descripcion}
           onChange={handleInputChange}
           placeholder="Descripción"
-          required
         />
         <select
           name="id_categoria"
@@ -159,7 +142,6 @@ const FormularioProducto = ({ productoEdit, setProductoEdit, fetchProductos }) =
           value={nuevoProducto.stock_minimo}
           onChange={handleInputChange}
           placeholder="Stock Mínimo"
-          required
         />
         <select
           name="id_proveedor"
