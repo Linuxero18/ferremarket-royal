@@ -1,18 +1,36 @@
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+
 const TableCategorias = ({ categorias = [], handleEdit, handleDelete }) => {
   if (categorias.length === 0) {
     return <p>No hay categorías disponibles</p>;
   }
 
+  // Función de confirmación para eliminar categoría con SweetAlert2
   const handleDeleteConfirm = (id) => {
-    const isConfirmed = window.confirm("¿Estás seguro de eliminar esta categoría?");
-    if (isConfirmed) {
-      handleDelete(id); // Llamada directa a la función pasada como propiedad
-    }
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Esta categoría se eliminará permanentemente.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        handleDelete(id); // Llama a la función de eliminación si el usuario confirma
+        Swal.fire(
+          'Eliminado',
+          'La categoría ha sido eliminada correctamente.',
+          'success'
+        );
+      }
+    });
   };
 
   return (
     <section className="lista-categorias">
-      <h2>Lista de Categorías</h2>
       <div className="table-wrapper">
         <table className="categorias-table">
           <thead>
@@ -33,14 +51,14 @@ const TableCategorias = ({ categorias = [], handleEdit, handleDelete }) => {
                   <div className="buttons-container">
                     <button
                       className="buttonEditar"
-                      onClick={() => handleEdit(categoria)} // Pasa los datos al editar
+                      onClick={() => handleEdit(categoria)} // Llama a la función para editar
                       aria-label={`Editar categoría con ID ${categoria.id_categoria}`}
                     >
                       Editar
                     </button>
                     <button
                       className="buttonEliminar"
-                      onClick={() => handleDeleteConfirm(categoria.id_categoria)} // Llama a la función confirmación
+                      onClick={() => handleDeleteConfirm(categoria.id_categoria)} // Llama a la función de confirmación de eliminación
                       aria-label={`Eliminar categoría con ID ${categoria.id_categoria}`}
                     >
                       Eliminar

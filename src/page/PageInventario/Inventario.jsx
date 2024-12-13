@@ -3,17 +3,20 @@ import FormularioProducto from '../../components/Shared/Form/FormularioProducto'
 import TableProducto from '../../components/Shared/Table/TableProducto';
 import FormularioCategorias from '../../components/Shared/Form/FormularioCategorias';
 import TableCategorias from '../../components/Shared/Table/TableCategorias';
+import SearchBar from '../../components/Shared/SearchBar/SearchBar'; // Importa el nuevo componente de búsqueda
 
-import "./Inventario.css"
+import "./Inventario.css";
 
 const PageInventario = () => {
   // Estados para productos
   const [productos, setProductos] = useState([]);
   const [productoEdit, setProductoEdit] = useState(null);
+  const [searchTermProducto, setSearchTermProducto] = useState(''); // Término de búsqueda para productos
 
   // Estados para categorías
   const [categorias, setCategorias] = useState([]);
   const [categoriaEdit, setCategoriaEdit] = useState(null);
+  const [searchTermCategoria, setSearchTermCategoria] = useState(''); // Término de búsqueda para categorías
 
   // Estados para proveedores
   const [proveedores, setProveedores] = useState([]);
@@ -120,10 +123,19 @@ const PageInventario = () => {
     }
   };
 
+  // Filtrar productos y categorías por término de búsqueda
+  const filteredProductos = productos.filter((producto) =>
+    producto.nombre.toLowerCase().includes(searchTermProducto.toLowerCase())
+  );
+
+  const filteredCategorias = categorias.filter((categoria) =>
+    categoria.nombre_categoria.toLowerCase().includes(searchTermCategoria.toLowerCase())
+  );
+
   return (
     <div className="page-inventario">
       <h1>Gestión de Inventario</h1>
-
+  
       <section className="productos-section">
         <FormularioProducto
           productoEdit={productoEdit}
@@ -132,26 +144,38 @@ const PageInventario = () => {
           categorias={categorias}
           proveedores={proveedores}
         />
-
-        <TableProducto
-          productos={productos}
-          handleEdit={(producto) => setProductoEdit(producto)}
-          handleDelete={handleDeleteProducto}
-        />
+        <div className="table-container">
+          <SearchBar
+            searchTerm={searchTermProducto}
+            setSearchTerm={setSearchTermProducto}
+            placeholder="Buscar producto por nombre"
+          />
+          <TableProducto
+            productos={filteredProductos}
+            handleEdit={(producto) => setProductoEdit(producto)}
+            handleDelete={handleDeleteProducto}
+          />
+        </div>
       </section>
-
+  
       <section className="categorias-section">
         <FormularioCategorias
           categoriaEdit={categoriaEdit}
           setCategoriaEdit={setCategoriaEdit}
           handleSaveCategoria={handleSaveCategoria}
         />
-
-        <TableCategorias
-          categorias={categorias}
-          handleEdit={(categoria) => setCategoriaEdit(categoria)}
-          handleDelete={handleDeleteCategoria}
-        />
+        <div className="table-container">
+          <SearchBar
+            searchTerm={searchTermCategoria}
+            setSearchTerm={setSearchTermCategoria}
+            placeholder="Buscar categoría por nombre"
+          />
+          <TableCategorias
+            categorias={filteredCategorias}
+            handleEdit={(categoria) => setCategoriaEdit(categoria)}
+            handleDelete={handleDeleteCategoria}
+          />
+        </div>
       </section>
     </div>
   );
