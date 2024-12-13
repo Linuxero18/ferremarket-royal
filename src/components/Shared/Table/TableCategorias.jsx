@@ -13,43 +13,45 @@ const TableCategorias = ({ categorias = [], handleEdit, handleDelete }) => {
   return (
     <section className="lista-categorias">
       <h2>Lista de Categorías</h2>
-      <table className="categorias-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {categorias.map((categoria) => (
-            <tr key={categoria.id_categoria}>
-              <td>{categoria.id_categoria}</td>
-              <td>{categoria.nombre_categoria}</td>
-              <td>{categoria.descripcion}</td>
-              <td>
-                <div className="buttons-container">
-                  <button
-                    className="buttonEditar"
-                    onClick={() => handleEdit(categoria)} // Pasa los datos al editar
-                    aria-label={`Editar categoría con ID ${categoria.id_categoria}`}
-                  >
-                    Editar
-                  </button>
-                  <button
-                    className="buttonEliminar"
-                    onClick={() => handleDeleteConfirm(categoria.id_categoria)} // Llama a la función confirmación
-                    aria-label={`Eliminar categoría con ID ${categoria.id_categoria}`}
-                  >
-                    Eliminar
-                  </button>
-                </div>
-              </td>
+      <div className="table-wrapper">
+        <table className="categorias-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Acciones</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {categorias.map((categoria) => (
+              <tr key={categoria.id_categoria}>
+                <td>{categoria.id_categoria}</td>
+                <td>{categoria.nombre_categoria}</td>
+                <td>{categoria.descripcion}</td>
+                <td>
+                  <div className="buttons-container">
+                    <button
+                      className="buttonEditar"
+                      onClick={() => handleEdit(categoria)} // Pasa los datos al editar
+                      aria-label={`Editar categoría con ID ${categoria.id_categoria}`}
+                    >
+                      Editar
+                    </button>
+                    <button
+                      className="buttonEliminar"
+                      onClick={() => handleDeleteConfirm(categoria.id_categoria)} // Llama a la función confirmación
+                      aria-label={`Eliminar categoría con ID ${categoria.id_categoria}`}
+                    >
+                      Eliminar
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </section>
   );
 };

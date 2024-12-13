@@ -1,8 +1,10 @@
-import{ useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import FormularioProducto from '../../components/Shared/Form/FormularioProducto';
 import TableProducto from '../../components/Shared/Table/TableProducto';
 import FormularioCategorias from '../../components/Shared/Form/FormularioCategorias';
 import TableCategorias from '../../components/Shared/Table/TableCategorias';
+
+import "./Inventario.css"
 
 const PageInventario = () => {
   // Estados para productos

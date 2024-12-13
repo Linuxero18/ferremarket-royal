@@ -1,225 +1,167 @@
-/* Estilo para el contenedor principal de Inventario */
-.inventario-container {
+.page-inventario {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "productos"
+    "categorias";
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 1rem;
+  background-color: #19222b; /* Fondo oscuro pero suave */
+  color: #DDD6CC; /* Texto claro */
+}
+
+.page-inventario h1 {
+  grid-area: header;
+  text-align: center;
+  color: #BDD4D2; /* Tono suave para el encabezado */
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #BD9240; /* Borde dorado sutil */
+  padding-bottom: 1rem;
+}
+
+.page-inventario .productos-section,
+.page-inventario .categorias-section {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5rem;
+  background-color: #1F2A37; /* Fondo oscuro para las secciones */
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra suave */
+}
+
+.page-inventario form {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 30px;
-  background-color: #2c3e50;
-  min-height: 100vh;
-  color: #ecf0f1;
-}
-
-/* Estilo para el encabezado del inventario */
-.inventario-header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.inventario-header h1 {
-  font-size: 2.5rem; /* Cambiado de 3rem a 2.5rem */
-  color: #f39c12;
-}
-
-.inventario-header p {
-  font-size: 1rem; /* Cambiado de 1.2rem a 1rem */
-}
-
-/* Estilo para el contenedor de formulario y tabla (principal) */
-.inventario-main {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  width: 100%;
-  max-width: 1500px;
-}
-
-/* Estilo para el formulario de productos */
-.productos-formulario {
-  width: 100%;
-  max-width: 1500px;
-  background-color: #34495e;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  border: 1px solid #2c3e50;
-  flex: 1;
-}
-
-.productos-formulario h2 {
-  font-size: 1.5rem; /* Cambiado de 2rem a 1.5rem */
-  color: #f39c12;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* Estilo para los campos de texto (input) y combobox (select) */
-.productos-formulario input,
-.productos-formulario select {
-  padding: 15px;
-  font-size: 0.9rem; /* Tamaño de fuente similar */
-  border: 1px solid #7f8c8d;
-  border-radius: 6px;
-  background-color: #34495e;
-  color: #ecf0f1;
-  width: 100%;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-/* Efecto hover para los inputs y select */
-.productos-formulario input:hover,
-.productos-formulario select:hover {
-  background-color: #2c3e50;
-  transform: translateY(-2px);
-}
-
-/* Efecto focus para los inputs y select */
-.productos-formulario input:focus,
-.productos-formulario select:focus {
-  outline: none;
-  box-shadow: 0 4px 8px rgba(21, 98, 149, 0.635);
-}
-
-/* Estilo para el botón de submit en el formulario */
-.productos-formulario button {
-  background-color: #345c8a;
-  color: #fff;
-  padding: 6px 15px;
-  font-size: 1rem;
-  border: none;
+  gap: 1rem;
+  background-color: #1F2A37; /* Fondo oscuro para el formulario */
+  padding: 1.5rem;
   border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(21, 98, 149, 0.635);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra suave */
 }
 
-/* Efecto hover para el botón */
-.productos-formulario button:hover {
-  background-color: #30639c;
-  transform: translateY(-2px);
+.page-inventario form label {
+  font-size: 1rem;
+  color: #BDD4D2; /* Color suave para las etiquetas */
 }
 
-.productos-formulario button:focus {
-  outline: none;
-  box-shadow: 0 4px 8px rgba(21, 98, 149, 0.635);
-}
-
-/* Contenedor para habilitar el scroll de la tabla */
-.lista-productos {
-  width: 100%; /* Ancho máximo del contenedor */
-  max-width: 1100px;
-  max-height: fit; /* Altura máxima ajustable según necesidad */
-  background-color: #34495e;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  border: 1px solid #2c3e50;
-  overflow: auto; /* Habilita el desplazamiento si excede el tamaño */
-}
-
-/* Estilo para la tabla de productos */
-.productos-table {
+.page-inventario form input,
+.page-inventario form select,
+.page-inventario form textarea {
   width: 100%;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  border: 1px solid #BD9240; /* Borde dorado suave */
+  border-radius: 4px;
+  background-color: #2A3A47; /* Fondo más oscuro para los campos */
+  color: #DDD6CC; /* Texto claro en los campos */
+}
+
+.page-inventario form input:focus,
+.page-inventario form select:focus,
+.page-inventario form textarea:focus {
+  border-color: #ffa200; /* Cambio sutil al rosado cuando el campo está enfocado */
+  outline: none;
+  box-shadow: 0 0 3px rgba(184, 67, 87, 0.2); /* Sombra sutil */
+}
+
+.page-inventario form button {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #BD9240; /* Botón de color dorado suave */
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.page-inventario form button:hover {
+  background-color: #A57C33; /* Un tono dorado más suave para el hover */
+}
+
+.page-inventario section h2 {
+  font-size: 1.2rem;
+}
+
+.page-inventario .table-wrapper {
+  max-height: 400px; /* Ajusta la altura máxima según lo necesites */
+  overflow-y: auto; /* Habilita el desplazamiento vertical */
+}
+
+.page-inventario .productos-table,
+.page-inventario .categorias-table {
+  width: 100%;
+  margin-top: 20px;
+  margin-inline: 0;
   border-collapse: collapse;
-  box-shadow: #2c3e50 0 0 20px;
-  max-height: 550px; /* Establecer un alto fijo para la tabla */
-  overflow-y: auto; /* Hacer que la tabla sea desplazable verticalmente si el contenido excede el alto */
-  display: block; /* Necesario para aplicar el overflow en tablas */
+  font-size: 0.9rem;
+  background-color: #1F2A37; /* Fondo oscuro para la tabla */
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-/* Estilo para las celdas de la tabla */
-.productos-table th,
-.productos-table td {
-  padding: 10px;
-  text-align: left;
-  font-size: 0.9rem; /* Tamaño de fuente reducido */
-  border: #f39c12 transparent;
+.page-inventario .productos-table th,
+.page-inventario .categorias-table th {
+  position: sticky;
+  top: 0; /* Fija el encabezado en la parte superior */
+  background-color: #BD9240; /* Fondo dorado para el encabezado */
+  color: #19222b; /* Texto oscuro para el encabezado */
+  z-index: 10; /* Asegura que el encabezado esté encima de las filas */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Añadir sombra para separar el encabezado del contenido */
 }
 
-/* Estilo para el encabezado de la tabla */
-.productos-table th {
-  background-color: #204861; /* Color de fondo del encabezado */
-  color: white; /* Color del texto del encabezado */
-  position: sticky; /* Hacer que el encabezado sea fijo */
-  top: 0; /* Asegura que el encabezado se quede en la parte superior */
-  z-index: 1; /* Asegura que el encabezado se quede por encima de las filas */
+.page-inventario .productos-table th,
+.page-inventario .categorias-table th,
+.page-inventario .productos-table td,
+.page-inventario .categorias-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #DDD6CC; /* Borde claro */
 }
 
-/* Estilo para las filas de la tabla */
-.productos-table tr:nth-child(odd) {
-  background-color: #34495e; /* Color para las filas impares */
-}
-
-.productos-table tr:nth-child(even) {
-  background-color: #2c3e50; /* Color para las filas pares */
-}
-
-.lista-productos h2 {
-  font-size: 1.5rem; /* Cambiado de 2rem a 1.5rem */
-  text-align: center;
-  margin-bottom: 30px;
-  color: #f39c12;
-}
-
-/* Contenedor para los botones */
-.buttons-container {
-  padding: 5px;
+.page-inventario .buttons-container {
   display: flex;
-  gap: 10px;
-  justify-content: center;
+  gap: 0.5rem;
 }
 
-/* Estilo para el botón de "Editar" */
-.buttonEditar {
-  background-color: #345c8a;
-  color: #fff;
-  padding: 6px 15px;
-  font-size: 1rem;
+.page-inventario button {
+  padding: 0.5rem 1rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(21, 98, 149, 0.635);
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
 }
 
-.buttonEditar:hover {
-  background-color: #30639c;
-  transform: translateY(-2px);
+.page-inventario button.buttonEditar {
+  background-color: #BD9240; /* Botón de editar en dorado suave */
+  color: white;
 }
 
-.buttonEditar:focus {
-  outline: none;
-  box-shadow: 0 4px 8px rgba(21, 98, 149, 0.635);
+.page-inventario button.buttonEliminar {
+  background-color: #B84357; /* Botón de eliminar en rosado suave */
+  color: white;
 }
 
-/* Estilo para el botón de "Eliminar" */
-.buttonEliminar {
-  background-color: #B84357;
-  color: #fff;
-  padding: 6px 15px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(189, 56, 78, 0.785);
+.page-inventario button:hover {
+  opacity: 0.8; /* Hover más discreto */
 }
 
-.buttonEliminar:hover {
-  background-color: #c83b52;
-  transform: translateY(-2px);
+@media (max-width: 768px) {
+  .page-inventario {
+    padding: 1rem;
+    grid-template-areas:
+      "header"
+      "productos"
+      "categorias";
+  }
+
+  .page-inventario .productos-section,
+  .page-inventario .categorias-section {
+    grid-template-columns: 1fr;
+  }
 }
 
-.buttonEliminar:focus {
-  outline: none;
-  box-shadow: 0 4px 8px rgba(189, 56, 78, 0.785);
-}
-
-.error-message {
-  color: #e74c3c;
-  background-color: #f2dede;
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 10px;
-  text-align: center;
-}
