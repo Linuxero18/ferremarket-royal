@@ -15,7 +15,7 @@
   grid-area: header;
   text-align: center;
   color: #BDD4D2; /* Tono suave para el encabezado */
-  font-size: 3rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
   border-bottom: 1px solid #BD9240; /* Borde dorado sutil */
   padding-bottom: 1rem;
@@ -34,7 +34,11 @@
 
 .page-inventario .search-bar-container{
   margin-bottom: 20px;
-  width: fit-content;
+}
+
+.page-inventario .search-bar-input{
+  padding: 10px;
+  width: 400px;
 }
 
 .page-inventario form {

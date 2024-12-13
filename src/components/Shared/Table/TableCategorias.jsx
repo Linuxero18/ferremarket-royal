@@ -1,5 +1,4 @@
 import Swal from 'sweetalert2';
-import 'sweetalert2/dist/sweetalert2.min.css';
 
 const TableCategorias = ({ categorias = [], handleEdit, handleDelete }) => {
   if (categorias.length === 0) {

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Swal from 'sweetalert2';
-import 'sweetalert2/dist/sweetalert2.min.css';
 
 const FormularioCategorias = ({ categoriaEdit, setCategoriaEdit, handleSaveCategoria }) => {
   const [nuevaCategoria, setNuevaCategoria] = useState({

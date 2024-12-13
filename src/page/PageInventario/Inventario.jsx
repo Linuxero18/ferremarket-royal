@@ -3,7 +3,8 @@ import FormularioProducto from '../../components/Shared/Form/FormularioProducto'
 import TableProducto from '../../components/Shared/Table/TableProducto';
 import FormularioCategorias from '../../components/Shared/Form/FormularioCategorias';
 import TableCategorias from '../../components/Shared/Table/TableCategorias';
-import SearchBar from '../../components/Shared/SearchBar/SearchBar'; // Importa el nuevo componente de búsqueda
+import SearchBar from '../../components/Shared/SearchBar/SearchBar';
+import Swal from 'sweetalert2';
 
 import "./Inventario.css";
 
@@ -46,7 +47,12 @@ const PageInventario = () => {
       const data = await response.json();
       setCategorias(data);
     } catch (error) {
-      console.error('Error al cargar categorías:', error);
+      Swal.fire({
+        title: 'Error',
+        text: 'Error al cargar categorías',
+        icon: 'error',
+        confirmButtonText: 'Aceptar',
+      });
     }
   };
 
@@ -57,7 +63,12 @@ const PageInventario = () => {
       const data = await response.json();
       setProveedores(data);
     } catch (error) {
-      console.error('Error al cargar proveedores:', error);
+      Swal.fire({
+        title: 'Error',
+        text: 'Error al cargar proveedores',
+        icon: 'error',
+        confirmButtonText: 'Aceptar',
+      });
     }
   };
 
@@ -76,34 +87,54 @@ const PageInventario = () => {
       });
 
       if (response.ok) {
-        alert(categoriaEdit ? 'Categoría actualizada' : 'Categoría creada');
+        Swal.fire({
+          title: 'Éxito',
+          text: categoriaEdit ? 'Categoría actualizada correctamente' : 'Categoría creada correctamente',
+          icon: 'success',
+          confirmButtonText: 'Aceptar',
+        });
         setCategoriaEdit(null);
         fetchCategorias();
       } else {
         throw new Error('Error al guardar la categoría');
       }
     } catch (error) {
-      console.error('Error al guardar categoría:', error);
-    }
-  };
-
-  // Eliminar categoría
-  const handleDeleteCategoria = async (id) => {
-    try {
-      const response = await fetch(`http://localhost:3000/categorias/${id}`, {
-        method: 'DELETE',
+      Swal.fire({
+        title: 'Error',
+        text: 'Error al guardar la categoría',
+        icon: 'error',
+        confirmButtonText: 'Aceptar',
       });
-
-      if (response.ok) {
-        alert('Categoría eliminada');
-        fetchCategorias();
-      } else {
-        throw new Error('Error al eliminar la categoría');
-      }
-    } catch (error) {
-      console.error('Error al eliminar categoría:', error);
     }
   };
+
+// Eliminar categoría
+const handleDeleteCategoria = async (id) => {
+  try {
+    const response = await fetch(`http://localhost:3000/categorias/${id}`, {
+      method: 'DELETE',
+    });
+
+    if (response.ok) {
+      Swal.fire({
+        title: 'Éxito',
+        text: 'Categoría eliminada correctamente',
+        icon: 'success',
+        confirmButtonText: 'Aceptar',
+      });
+      fetchCategorias(); // Refrescar la lista de categorías
+    } else {
+      throw new Error('Error al eliminar la categoría');
+    }
+  } catch (error) {
+    Swal.fire({
+      title: 'Error',
+      text: 'Error al eliminar la categoría',
+      icon: 'error',
+      confirmButtonText: 'Aceptar',
+    });
+  }
+};
 
   // Eliminar producto
   const handleDeleteProducto = async (id) => {
@@ -113,13 +144,23 @@ const PageInventario = () => {
       });
 
       if (response.ok) {
-        alert('Producto eliminado');
+        Swal.fire({
+          title: 'Éxito',
+          text: 'Producto eliminado correctamente',
+          icon: 'success',
+          confirmButtonText: 'Aceptar',
+        });
         fetchProductos();
       } else {
         throw new Error('Error al eliminar el producto');
       }
     } catch (error) {
-      console.error('Error al eliminar producto:', error);
+      Swal.fire({
+        title: 'Error',
+        text: 'Error al eliminar el producto',
+        icon: 'error',
+        confirmButtonText: 'Aceptar',
+      });
     }
   };
 
@@ -170,11 +211,11 @@ const PageInventario = () => {
             setSearchTerm={setSearchTermCategoria}
             placeholder="Buscar categoría por nombre"
           />
-          <TableCategorias
-            categorias={filteredCategorias}
-            handleEdit={(categoria) => setCategoriaEdit(categoria)}
+        <TableCategorias
+          categorias={filteredCategorias}
+          handleEdit={(categoria) => setCategoriaEdit(categoria)}
             handleDelete={handleDeleteCategoria}
-          />
+        />
         </div>
       </section>
     </div>

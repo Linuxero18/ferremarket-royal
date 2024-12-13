@@ -51,17 +51,6 @@ const FormularioProducto = ({
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-
-    // Restricción para evitar números en campos de texto
-    if ((name === 'nombre' || name === 'descripcion') && /\d/.test(value)) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Entrada inválida',
-        text: 'El campo no debe contener números.',
-      });
-      return;
-    }
-
     setNuevoProducto(prev => ({ ...prev, [name]: value }));
   };
 
@@ -79,14 +68,21 @@ const FormularioProducto = ({
         return;
     }
 
-    // Validar que el nombre no contenga caracteres especiales
-    const namePattern = /^[a-zA-Z0-9\s]+$/;
-    if (!namePattern.test(nuevoProducto.nombre)) {
-        setError('El nombre del producto solo puede contener letras y números.');
+    // Validar que los campos no contengan solo números
+    if (/^\d+$/.test(nuevoProducto.nombre)) {
         Swal.fire({
           icon: 'error',
           title: 'Error',
-          text: 'El nombre del producto solo puede contener letras y números.',
+          text: 'El nombre no puede contener solo números.',
+        });
+        return;
+    }
+
+    if (nuevoProducto.descripcion && /^\d+$/.test(nuevoProducto.descripcion)) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'La descripción no puede contener solo números.',
         });
         return;
     }
@@ -215,7 +211,7 @@ return (
         onChange={handleInputChange}
         placeholder="Precio Unitario"
         required
-        min="0" // Asegura que no se puedan ingresar números negativos
+        min="0"
       />
       <input
         type="number"
@@ -224,7 +220,7 @@ return (
         onChange={handleInputChange}
         placeholder="Stock Actual"
         required
-        min="0" // Asegura que no se puedan ingresar números negativos
+        min="0"
       />
       <input
         type="number"
@@ -232,7 +228,7 @@ return (
         value={nuevoProducto.stock_minimo}
         onChange={handleInputChange}
         placeholder="Stock Mínimo"
-        min="0" // Asegura que no se puedan ingresar números negativos
+        min="0"
       />
       <select
         name="id_proveedor"
