@@ -10,6 +10,7 @@ import Login from '../page/PageLogin/Login';
 import PrivateRoute from '../components/PrivateRoute';
 import Usuarios from '../page/PageUsuarios/Usuarios';
 import FormularioEditarUsuario from '../components/Shared/Form/FormularioEditarUsuario';
+import FormularioEditarProveedor from '../components/Shared/Form/FormularioEditarProveedor';
 
 function AppRoutes() {
   return (
@@ -79,11 +80,21 @@ function AppRoutes() {
         }
       />
       <Route 
-        path="/editar/:id" 
+        path="/editarUsuario/:id" 
         element={
           <PrivateRoute>
             <Layout>
               <FormularioEditarUsuario />
+            </Layout>
+          </PrivateRoute>
+        } 
+      />
+      <Route 
+        path="/editarProveedor/:id" 
+        element={
+          <PrivateRoute>
+            <Layout>
+              <FormularioEditarProveedor />
             </Layout>
           </PrivateRoute>
         } 
