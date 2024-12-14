@@ -11,6 +11,9 @@ import PrivateRoute from '../components/PrivateRoute';
 import Usuarios from '../page/PageUsuarios/Usuarios';
 import FormularioEditarUsuario from '../components/Shared/Form/FormularioEditarUsuario';
 import FormularioEditarProveedor from '../components/Shared/Form/FormularioEditarProveedor';
+import VentasRealizadas from '../page/PageVentas/ventasRealizadas';
+import DetalleVenta from '../page/PageVentas/detalleVenta';
+
 
 function AppRoutes() {
   return (
@@ -38,6 +41,26 @@ function AppRoutes() {
             </Layout>
           </PrivateRoute>
         }
+      />
+      <Route 
+        path="/ventasRealizadas" 
+        element={
+          <PrivateRoute>
+            <Layout>
+              <VentasRealizadas />
+            </Layout>
+          </PrivateRoute>
+        } 
+      />
+      <Route 
+        path="/detalleventas/venta/:id" 
+        element={
+          <PrivateRoute>
+            <Layout>
+              <DetalleVenta />
+            </Layout>
+          </PrivateRoute>
+        } 
       />
       <Route
         path="/inventario"

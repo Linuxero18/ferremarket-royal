@@ -1,0 +1,106 @@
+.page-detalle-venta {
+    display: grid;
+    grid-template-areas:
+      "header"
+      "ventas";
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1rem;
+    background-color: #19222b; /* Fondo oscuro pero suave */
+    color: #DDD6CC; /* Texto claro */
+  }
+  
+  .header-detalle-venta {
+    grid-area: header;
+    text-align: center;
+    color: #BDD4D2; /* Tono suave para el encabezado */
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #BD9240; /* Borde dorado sutil */
+    padding-bottom: 1rem;
+  }
+  
+  .page-detalle-venta .btn-volver {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #BD9240;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 1rem;
+  }
+  
+  .page-detalle-venta .btn-volver:hover {
+    background-color: #A57C33; /* Un tono dorado más suave para el hover */
+  }
+  
+  .page-detalle-venta .mensaje-no-detalles {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #BDD4D2;
+  }
+  
+  .page-detalle-venta .table-wrapper {
+    max-height: 500px; /* Ajusta la altura máxima según lo necesites */
+    overflow-y: auto; /* Habilita el desplazamiento vertical */
+  }
+  
+  .page-detalle-venta .table-detalle-venta {
+    width: 100%;
+    margin-inline: 0;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    background-color: #1F2A37; /* Fondo oscuro para la tabla */
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .page-detalle-venta th {
+    position: sticky;
+    top: 0;
+    background-color: #BD9240; /* Fondo dorado para el encabezado */
+    color: #19222b;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .page-detalle-venta th, .page-detalle-venta td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #DDD6CC;
+  }
+  
+  .page-detalle-venta td {
+    background-color: #1F2A37; /* Fondo oscuro para las celdas */
+  }
+  
+  .page-detalle-venta tr:nth-child(even) td {
+    background-color: #29343C; /* Fondo ligeramente diferente para filas alternas */
+  }
+  
+  .page-detalle-venta tr:hover td {
+    background-color: #3E4A56; /* Efecto hover para las filas */
+  }
+  
+  @media (max-width: 768px) {
+    .page-detalle-venta {
+      padding: 1rem;
+      grid-template-areas:
+        "header"
+        "ventas";
+    }
+  
+    .page-detalle-venta .table-detalle-venta {
+      font-size: 0.8rem; /* Reducir tamaño de fuente en pantallas pequeñas */
+    }
+  
+    .page-detalle-venta th, .page-detalle-venta td {
+      padding: 0.5rem; /* Reducir el padding en pantallas pequeñas */
+    }
+  
+    .page-detalle-venta .header-detalle-venta {
+      font-size: 1.5rem; /* Reducir el tamaño del título en pantallas pequeñas */
+    }
+  }
+  

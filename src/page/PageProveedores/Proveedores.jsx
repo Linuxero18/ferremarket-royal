@@ -1,10 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import TableProveedores from '../../components/Shared/Table/TableProveedores'; // Asegúrate de que este archivo esté correctamente ubicado
-import './Proveedores.css'; // Asegúrate de tener un archivo CSS específico para estilos de proveedores
+import TableProveedores from '../../components/Shared/Table/TableProveedores';
+import './Proveedores.css';
 
-const Proveedores = () => {
+function Proveedores() {
   const [proveedores, setProveedores] = useState([]);
+  const [showForm, setShowForm] = useState(false);
+  const [newProveedor, setNewProveedor] = useState({
+    nombre_proveedor: '',
+    contacto: '',
+    telefono: '',
+  });
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -48,6 +55,33 @@ const Proveedores = () => {
     navigate(`/editarProveedor/${proveedor.id_proveedor}`, { state: { proveedor } });
   };
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewProveedor({ ...newProveedor, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('http://localhost:3000/proveedores/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newProveedor),
+      });
+      if (response.ok) {
+        alert('Proveedor registrado correctamente');
+        fetchProveedores();
+        setShowForm(false); // Ocultar formulario
+        setNewProveedor({ nombre_proveedor: '', contacto: '', telefono: '' });
+      } else {
+        const errorData = await response.json();
+        alert(`Error al registrar el proveedor: ${errorData.message}`);
+      }
+    } catch (error) {
+      console.error('Error al registrar el proveedor:', error);
+    }
+  };
+
   return (
     <div className="proveedor-container">
       <header className="proveedor-header">
@@ -55,14 +89,54 @@ const Proveedores = () => {
         <p>Administra tus proveedores fácilmente.</p>
       </header>
       <main className="proveedor-main">
-        <TableProveedores 
-          proveedores={proveedores} 
-          handleEdit={handleEdit} 
-          handleDelete={handleDelete} 
+        <button className="btn btn-primary" onClick={() => setShowForm(!showForm)}>
+          {showForm ? 'Cerrar formulario' : 'Registrar nuevo proveedor'}
+        </button>
+        {showForm && (
+          <form onSubmit={handleSubmit} className="proveedor-form">
+            <div>
+              <label>Nombre del proveedor:</label>
+              <input
+                type="text"
+                name="nombre_proveedor"
+                value={newProveedor.nombre_proveedor}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div>
+              <label>Contacto:</label>
+              <input
+                type="text"
+                name="contacto"
+                value={newProveedor.contacto}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div>
+              <label>Teléfono:</label>
+              <input
+                type="number"
+                name="telefono"
+                value={newProveedor.telefono}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <button type="submit" className="btn btn-success">
+              Registrar
+            </button>
+          </form>
+        )}
+        <TableProveedores
+          proveedores={proveedores}
+          handleEdit={handleEdit}
+          handleDelete={handleDelete}
         />
       </main>
     </div>
   );
-};
+}
 
 export default Proveedores;
