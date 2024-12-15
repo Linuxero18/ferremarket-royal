@@ -1,0 +1,108 @@
+.proveedor-container {
+    display: grid;
+    grid-template-areas:
+      "header"
+      "main";
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1rem;
+    background-color: #19222b; /* Fondo oscuro pero suave */
+    color: #DDD6CC; /* Texto claro */
+  }
+  
+  .proveedor-header {
+    grid-area: header;
+    text-align: center;
+    color: #BDD4D2; /* Tono suave para el encabezado */
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #BD9240; /* Borde dorado sutil */
+    padding-bottom: 1rem;
+  }
+  
+  .proveedor-main {
+    display: grid;
+    gap: 1.5rem;
+  }
+  
+  .btn-primary {
+    width: 20%;
+  }
+
+  .proveedor-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #1F2A37; /* Fondo oscuro */
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra suave */
+  }
+  
+  .proveedor-form label {
+    font-size: 1rem;
+    color: #BDD4D2; /* Color suave para las etiquetas */
+  }
+  
+  .proveedor-form input {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    border: 1px solid #BD9240; /* Borde dorado suave */
+    border-radius: 4px;
+    background-color: #2A3A47; /* Fondo más oscuro */
+    color: #DDD6CC; /* Texto claro */
+  }
+  
+  .proveedor-form input:focus {
+    border-color: #ffa200; /* Cambio sutil */
+    outline: none;
+    box-shadow: 0 0 3px rgba(184, 67, 87, 0.2); /* Sombra sutil */
+  }
+  
+  .proveedor-form button {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #BD9240; /* Botón dorado */
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .proveedor-form button:hover {
+    background-color: #A57C33; /* Tono más suave */
+  }
+  
+  .table-wrapper {
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  
+  .proveedores-table {
+    text-align: center;
+    width: 100%;
+    margin-inline: 0;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    background-color: #1F2A37; /* Fondo oscuro */
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .proveedores-table th {
+    position: sticky;
+    top: 0;
+    background-color: #BD9240; /* Encabezado dorado */
+    color: #19222b; /* Texto oscuro */
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .proveedores-table th,
+  .proveedores-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #DDD6CC; /* Borde claro */
+  }
+  

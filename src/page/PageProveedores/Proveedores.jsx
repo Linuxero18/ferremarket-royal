@@ -71,7 +71,7 @@ function Proveedores() {
       if (response.ok) {
         alert('Proveedor registrado correctamente');
         fetchProveedores();
-        setShowForm(false); // Ocultar formulario
+        setShowForm(false);
         setNewProveedor({ nombre_proveedor: '', contacto: '', telefono: '' });
       } else {
         const errorData = await response.json();

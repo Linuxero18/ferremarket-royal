@@ -1,261 +1,161 @@
-/* Estilo para el contenedor principal de Usuarios */
+/* Contenedor Principal */
 .usuario-container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main";
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 1rem;
+  background-color: #19222b; /* Fondo oscuro pero suave */
+  color: #DDD6CC; /* Texto claro */
+}
+
+/* Encabezado */
+.usuario-header {
+  grid-area: header;
+  text-align: center;
+  color: #BDD4D2; /* Tono suave para el encabezado */
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #BD9240; /* Borde dorado sutil */
+  padding-bottom: 1rem;
+}
+
+/* Área Principal */
+.usuario-main {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* Botón */
+.btn-primary {
+  width: 20%;
+}
+
+/* Formulario */
+.usuario-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 30px;
-  background-color: #2c3e50;
-  min-height: 100vh;
-  color: #ecf0f1;
+  gap: 1rem;
+  background-color: #1F2A37; /* Fondo oscuro */
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra suave */
 }
 
-/* Estilo para el encabezado de la página de usuarios */
-.usuario-header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.usuario-header h1 {
-  font-size: 2.5rem; /* Tamaño de fuente más pequeño */
-  color: #f39c12;
-}
-
-.usuario-header p {
+.usuario-form label {
   font-size: 1rem;
+  color: #BDD4D2; /* Color suave para las etiquetas */
 }
 
-/* Estilo para el contenedor principal que contiene la tabla */
-.usuario-main {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+.usuario-form input {
   width: 100%;
-  max-width: 1500px;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  border: 1px solid #BD9240; /* Borde dorado suave */
+  border-radius: 4px;
+  background-color: #2A3A47; /* Fondo más oscuro */
+  color: #DDD6CC; /* Texto claro */
 }
 
-/* Contenedor para habilitar el scroll de la tabla */
-.lista-usuarios {
-  width: 100%; /* Ancho máximo del contenedor */
-  max-width: 1100px;
-  max-height: fit; /* Altura máxima ajustable según necesidad */
-  background-color: #34495e;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  border: 1px solid #2c3e50;
-  overflow: auto; /* Habilita el desplazamiento si excede el tamaño */
+.usuario-form input:focus {
+  border-color: #ffa200; /* Cambio sutil */
+  outline: none;
+  box-shadow: 0 0 3px rgba(184, 67, 87, 0.2); /* Sombra sutil */
 }
 
-/* Estilo para la tabla de usuarios */
+.usuario-form button {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #BD9240; /* Botón dorado */
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.usuario-form button:hover {
+  background-color: #A57C33; /* Tono más suave */
+}
+
+/* Tabla de Usuarios */
+.table-wrapper {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
 .usuarios-table {
+  text-align: center;
   width: 100%;
+  margin-inline: 0;
   border-collapse: collapse;
-  box-shadow: #2c3e50 0 0 20px;
-  max-height: 550px; /* Establecer un alto fijo para la tabla */
-  overflow-y: auto; /* Hacer que la tabla sea desplazable verticalmente si el contenido excede el alto */
-  display: block; /* Necesario para aplicar el overflow en tablas */
-}
-
-.usuarios-table th, 
-.usuarios-table td {
-  padding: 10px 55.9px; /* Ajuste de padding */
-  text-align: left;
-  font-size: 0.9rem; /* Tamaño de fuente reducido */
-  border: #f39c12 transparent;
+  font-size: 0.9rem;
+  background-color: #1F2A37; /* Fondo oscuro */
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .usuarios-table th {
-  background-color: #204861; /* Color de fondo del encabezado */
-  color: white; /* Color del texto del encabezado */
-  position: sticky; /* Hacer que el encabezado sea fijo */
-  top: 0; /* Asegura que el encabezado se quede en la parte superior */
-  z-index: 1; /* Asegura que el encabezado se quede por encima de las filas */
+  position: sticky;
+  top: 0;
+  background-color: #BD9240; /* Encabezado dorado */
+  color: #19222b; /* Texto oscuro */
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.usuarios-table tr:nth-child(even) {
-  background-color: #2c3e50; /* Color para las filas pares */
+.usuarios-table th,
+.usuarios-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #DDD6CC; /* Borde claro */
 }
 
-.usuarios-table tr:nth-child(odd) {
-  background-color: #34495e;
-}
-
-.lista-usuarios h2 {
-  font-size: 1.5rem; /* Cambiado de 2rem a 1.5rem */
-  text-align: center;
-  margin-bottom: 30px;
-  color: #f39c12;
-}
-
-
-
-/* Estilo para el contenedor principal del formulario de edición */
-.formulario-editar-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px;
-  background-color: #2c3e50;
-  min-height: 100vh;
-  color: #ecf0f1;
-}
-
-/* Estilo para el encabezado del formulario de edición */
-.formulario-editar-container h1 {
-  font-size: 2.5rem;
-  color: #f39c12;
-  margin-bottom: 20px;
-}
-
-/* Estilo para los campos de formulario */
-.formulario-editar-container form {
-  width: 100%;
-  max-width: 600px;
-  background-color: #34495e;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  border: 1px solid #2c3e50;
-}
-
-.formulario-editar-container label {
-  font-size: 1rem;
-  color: #ecf0f1;
-  margin-bottom: 5px;
-  display: block;
-}
-
-.formulario-editar-container input {
-  width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  border: 1px solid #2c3e50;
-  background-color: #34495e;
-  color: #ecf0f1;
-}
-
-.formulario-editar-container input:focus {
-  outline: none;
-  border-color: #f39c12;
-  box-shadow: 0 0 5px rgba(243, 156, 18, 0.5);
-}
-
-/* Estilo para los botones de acción */
-.formulario-editar-container button {
-  width: 100%;
-  padding: 12px;
-  font-size: 1rem;
+/* Botones de Acciones */
+.buttonEditar,
+.buttonEliminar {
+  padding: 0.5rem 1rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
+  font-size: 0.9rem;
   cursor: pointer;
-  margin-top: 10px;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.formulario-editar-container button[type="submit"] {
-  background-color: #345c8a;
-  color: white;
-}
-
-.formulario-editar-container button[type="submit"]:hover {
-  background-color: #30639c;
-  transform: translateY(-2px);
-}
-
-.formulario-editar-container button[type="submit"]:focus {
-  outline: none;
-  box-shadow: 0 4px 8px rgba(21, 98, 149, 0.635);
-}
-
-.formulario-editar-container button[type="button"] {
-  background-color: #B84357;
-  color: white;
-}
-
-.formulario-editar-container button[type="button"]:hover {
-  background-color: #c83b52;
-  transform: translateY(-2px);
-}
-
-.formulario-editar-container button[type="button"]:focus {
-  outline: none;
-  box-shadow: 0 4px 8px rgba(189, 56, 78, 0.785);
-}
-
-/* Estilo para mensajes de error */
-.error-message {
-  color: #e74c3c;
-  background-color: #f2dede;
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 10px;
-  text-align: center;
-}
-
-
-
-
-/* Estilo para los botones de acción */
-.buttons-container {
-  padding: 5px;
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-}
-/* Estilo para el botón de "Editar" */
+/* Botón Editar */
 .buttonEditar {
-  background-color: #345c8a;
-  color: #fff;
-  padding: 6px 15px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(21, 98, 149, 0.635);
+  background-color: #5DA3FA; /* Azul claro */
+  color: white;
 }
 
 .buttonEditar:hover {
-  background-color: #30639c;
-  transform: translateY(-2px);
+  background-color: #3B82F6; /* Azul más oscuro */
+  transform: scale(1.05); /* Efecto de zoom */
 }
 
 .buttonEditar:focus {
-  outline: none;
-  box-shadow: 0 4px 8px rgba(21, 98, 149, 0.635);
+  outline: 2px solid #1E40AF; /* Contorno azul oscuro */
 }
 
-/* Estilo para el botón de "Eliminar" */
+/* Botón Eliminar */
 .buttonEliminar {
-  background-color: #B84357;
-  color: #fff;
-  padding: 6px 15px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(189, 56, 78, 0.785);
+  background-color: #E74C3C; /* Rojo claro */
+  color: white;
 }
 
 .buttonEliminar:hover {
-  background-color: #c83b52;
-  transform: translateY(-2px);
+  background-color: #C0392B; /* Rojo más oscuro */
+  transform: scale(1.05); /* Efecto de zoom */
 }
 
 .buttonEliminar:focus {
-  outline: none;
-  box-shadow: 0 4px 8px rgba(189, 56, 78, 0.785);
+  outline: 2px solid #A93226; /* Contorno rojo oscuro */
 }
 
-.error-message {
-  color: #e74c3c;
-  background-color: #f2dede;
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 10px;
-  text-align: center;
+/* Contenedor de Botones */
+.buttons-container {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
 }
-

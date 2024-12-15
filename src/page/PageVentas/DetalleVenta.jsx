@@ -34,6 +34,7 @@ const DetalleVenta = () => {
             <thead>
               <tr>
                 <th>ID Producto</th>
+                <th>Nombre</th>
                 <th>Cantidad</th>
                 <th>Precio Unitario</th>
                 <th>Total</th>
@@ -43,6 +44,7 @@ const DetalleVenta = () => {
               {detalleVenta.map((item) => (
                 <tr key={item.id_detalleventa}>
                   <td>{item.id_producto}</td>
+                  <td>{item.nombre}</td>
                   <td>{item.cantidad}</td>
                   <td>S/. {item.precio_unitario}</td>
                   <td>S/. {item.cantidad * item.precio_unitario}</td>

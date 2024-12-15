@@ -12,6 +12,7 @@ import Usuarios from '../page/PageUsuarios/Usuarios';
 import FormularioEditarUsuario from '../components/Shared/Form/FormularioEditarUsuario';
 import FormularioEditarProveedor from '../components/Shared/Form/FormularioEditarProveedor';
 import VentasRealizadas from '../page/PageVentas/ventasRealizadas';
+import RegistrarVenta from '../page/PageVentas/registrarVenta';
 import DetalleVenta from '../page/PageVentas/detalleVenta';
 
 
@@ -48,6 +49,16 @@ function AppRoutes() {
           <PrivateRoute>
             <Layout>
               <VentasRealizadas />
+            </Layout>
+          </PrivateRoute>
+        } 
+      />
+      <Route 
+        path="/registrarVenta" 
+        element={
+          <PrivateRoute>
+            <Layout>
+              <RegistrarVenta />
             </Layout>
           </PrivateRoute>
         } 

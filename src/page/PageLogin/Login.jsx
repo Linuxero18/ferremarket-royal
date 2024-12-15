@@ -26,9 +26,11 @@ const Login = () => {
 
             if (response.ok) {
                 const data = await response.json();
+                
                 localStorage.setItem('isAuthenticated', 'true');
-                localStorage.setItem('user', JSON.stringify(data.user));
-                navigate('/inicio'); 
+                localStorage.setItem('userId', data.user.id_usuario); 
+                localStorage.setItem('user', JSON.stringify(data.user)); 
+                navigate('/inicio');  // Redirigir a la página de inicio
             } else {
                 const errorData = await response.json();
                 setError(errorData.message || 'Error en el servidor');

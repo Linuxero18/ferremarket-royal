@@ -7,6 +7,9 @@ const Ventas = () => {
       <Link to="/ventasRealizadas">
         <button>Ver Ventas Realizadas</button>
       </Link>
+      <Link to="/registrarVenta">
+        <button>Registrar Venta</button>
+      </Link>
     </div>
   );
 };
