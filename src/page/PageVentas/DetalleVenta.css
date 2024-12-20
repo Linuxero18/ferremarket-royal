@@ -73,6 +73,7 @@
   
   .page-detalle-venta td {
     background-color: #1F2A37; /* Fondo oscuro para las celdas */
+    padding: 10px;
   }
   
   .page-detalle-venta tr:nth-child(even) td {
